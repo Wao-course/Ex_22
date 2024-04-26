@@ -1,0 +1,611 @@
+{
+	"info": {
+		"_postman_id": "823d395c-418c-4b84-92ba-246278352621",
+		"name": "Lecture 21 OAuth 2.0 and OpenID Connect (OIDC)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19556519"
+	},
+	"item": [
+		{
+			"name": "/",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/authed",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/authed",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"authed"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/oauth/token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "https://{{AUTH0_URL}}/oauth/token",
+					"protocol": "https",
+					"host": [
+						"{{AUTH0_URL}}"
+					],
+					"path": [
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "grant_type=client_credentials",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{CLIENT_SECRET}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "audience",
+									"value": "{{AUDIENCE}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{AUTH0_URL}}/oauth/token",
+							"protocol": "https",
+							"host": [
+								"{{AUTH0_URL}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Thu, 20 Apr 2023 10:37:29 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "CF-Ray",
+							"value": "7bacc0928f2dbe3a-CPH"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "private, no-store, no-cache, must-revalidate, post-check=0, pre-check=0, no-transform"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=31536000"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding, Origin"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "DYNAMIC"
+						},
+						{
+							"key": "ot-baggage-auth0-request-id",
+							"value": "7bacc0928f2dbe3a"
+						},
+						{
+							"key": "ot-tracer-sampled",
+							"value": "true"
+						},
+						{
+							"key": "ot-tracer-spanid",
+							"value": "60dec95b732eb90e"
+						},
+						{
+							"key": "ot-tracer-traceid",
+							"value": "5960428b6a95eac9"
+						},
+						{
+							"key": "traceparent",
+							"value": "00-00000000000000005960428b6a95eac9-60dec95b732eb90e-01"
+						},
+						{
+							"key": "tracestate",
+							"value": "auth0-request-id=7bacc0928f2dbe3a,auth0=true"
+						},
+						{
+							"key": "X-Auth0-RequestId",
+							"value": "800e4f267beaf8fcc87a"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "30"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "29"
+						},
+						{
+							"key": "X-RateLimit-Reset",
+							"value": "1681987050"
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "alt-svc",
+							"value": "h3=\":443\"; ma=86400, h3-29=\":443\"; ma=86400"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"error\": \"access_denied\",\n    \"error_description\": \"Client has not been granted scopes: offline_access\"\n}"
+				},
+				{
+					"name": "grant_type=authorization_code",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID}}",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{CLIENT_SECRET}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "INSERT_YOUR_AUTHORIZATION_CODE_HERE",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{REDIRECT_URI}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{AUTH0_URL}}/oauth/token",
+							"protocol": "https",
+							"host": [
+								"{{AUTH0_URL}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "grant_type=authorization_code_pkce",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID_PCKE}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text"
+								},
+								{
+									"key": "code",
+									"value": "YOUR_CODE_HERE",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{REDIRECT_URI}}",
+									"type": "text"
+								},
+								{
+									"key": "code_verifier",
+									"value": "YOUR_CODE_VERIFIER_HERE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{AUTH0_URL}}/oauth/token",
+							"protocol": "https",
+							"host": [
+								"{{AUTH0_URL}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "grant_type=refresh_token",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "refresh_token",
+									"type": "text"
+								},
+								{
+									"key": "refresh_token",
+									"value": "INSERT_YOUR_REFRESH_TOKEN_HERE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{AUTH0_URL}}/oauth/token",
+							"protocol": "https",
+							"host": [
+								"{{AUTH0_URL}}"
+							],
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "/authorize",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{AUTH0_URL}}/authorize",
+					"protocol": "https",
+					"host": [
+						"{{AUTH0_URL}}"
+					],
+					"path": [
+						"authorize"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "code",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "https://{{AUTH0_URL}}/authorize?scope=offline_access&client_id={{CLIENT_ID}}&client_secret={{CLIENT_SECRET}}&redirect_uri={{REDIRECT_URI}}&response_type=code",
+							"protocol": "https",
+							"host": [
+								"{{AUTH0_URL}}"
+							],
+							"path": [
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "scope",
+									"value": "offline_access"
+								},
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID}}"
+								},
+								{
+									"key": "client_secret",
+									"value": "{{CLIENT_SECRET}}"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{REDIRECT_URI}}"
+								},
+								{
+									"key": "response_type",
+									"value": "code"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "code_with_pkce",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "{{CODE_FLOW_CLIENT_ID}}",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "code",
+									"type": "text"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{REDIRECT_URI}}",
+									"type": "text"
+								},
+								{
+									"key": "code_challenge",
+									"value": "EDe-5L4vK71Z9H1E88Ctnh7ongB5HxNVlaPFdy_K6PQ",
+									"type": "text"
+								},
+								{
+									"key": "code_challenge_method",
+									"value": "S256",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{AUTH0_URL}}/authorize?client_id={{CLIENT_ID_PCKE}}&response_type=code&redirect_uri={{REDIRECT_URI}}&code_challenge=YOUR_CODE_CHALLENGE_HERE&code_challenge_method=S256&scope=offline_access",
+							"protocol": "https",
+							"host": [
+								"{{AUTH0_URL}}"
+							],
+							"path": [
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "client_id",
+									"value": "{{CLIENT_ID_PCKE}}"
+								},
+								{
+									"key": "response_type",
+									"value": "code"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "{{REDIRECT_URI}}"
+								},
+								{
+									"key": "code_challenge",
+									"value": "YOUR_CODE_CHALLENGE_HERE"
+								},
+								{
+									"key": "code_challenge_method",
+									"value": "S256"
+								},
+								{
+									"key": "scope",
+									"value": "offline_access"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "AUTH0_URL",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "CLIENT_ID_PCKE",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "CLIENT_SECRET_PCKE",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "AUDIENCE",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "REDIRECT_URI",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "CLIENT_ID",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "CLIENT_SECRET",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
